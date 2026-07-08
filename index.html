@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Classifier</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background: #f7f7f7;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    img {
+      margin-top: 20px;
+      max-width: 250px;
+      border-radius: 10px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .prediction {
+      margin-top: 8px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Rock Paper Scissors Classifier</h1>
+    <p>Upload an image to classify it as Rock, Paper, or Scissors.</p>
+
+    <input type="file" id="imageUpload" accept="image/*">
+
+    <br>
+
+    <img id="preview" style="display:none;">
+
+    <div id="result">Result will appear here</div>
+    <div id="label-container"></div>
+  </div>
+
+  <script>
+    let model;
+    let maxPredictions;
+
+    async function loadModel() {
+      const modelURL = "./model/model.json";
+      const metadataURL = "./model/metadata.json";
+
+      model = await tmImage.load(modelURL, metadataURL);
+      maxPredictions = model.getTotalClasses();
+
+      document.getElementById("result").innerText = "Model loaded. Upload an image.";
+    }
+
+    async function predictImage(img) {
+      const prediction = await model.predict(img);
+
+      let bestClass = prediction[0].className;
+      let bestProbability = prediction[0].probability;
+
+      const labelContainer = document.getElementById("label-container");
+      labelContainer.innerHTML = "";
+
+      for (let i = 0; i < prediction.length; i++) {
+        const classPrediction =
+          prediction[i].className + ": " + (prediction[i].probability * 100).toFixed(2) + "%";
+
+        const div = document.createElement("div");
+        div.className = "prediction";
+        div.innerText = classPrediction;
+        labelContainer.appendChild(div);
+
+        if (prediction[i].probability > bestProbability) {
+          bestProbability = prediction[i].probability;
+          bestClass = prediction[i].className;
+        }
+      }
+
+      document.getElementById("result").innerText =
+        "Prediction: " + bestClass;
+    }
+
+    document.getElementById("imageUpload").addEventListener("change", function(event) {
+      const file = event.target.files[0];
+
+      if (!file) return;
+
+      const img = document.getElementById("preview");
+      img.src = URL.createObjectURL(file);
+      img.style.display = "block";
+
+      img.onload = function() {
+        predictImage(img);
+      };
+    });
+
+    loadModel();
+  </script>
+</body>
+</html>
