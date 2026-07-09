@@ -1,98 +1,104 @@
-# rock-paper-scissors-web
-Image classification website for Rock, Paper, Scissors using Teachable Machine and TensorFlow.js
 # 🪨✋✌️ Rock Paper Scissors Image Classifier
 
 <p align="center">
-  <img src="screenshots/website.png" width="800" alt="Project Website Preview">
+  <img src="screenshots/website.png" width="800" alt="Website Preview">
 </p>
 
-An interactive **image classification web application** that predicts whether an uploaded hand gesture represents **Rock**, **Paper**, or **Scissors**.
+An interactive image classification project that predicts whether an uploaded hand gesture image represents **Rock**, **Paper**, or **Scissors**.
 
-The model was trained using **Google Teachable Machine**, tested through the machine learning workflow, exported in **TensorFlow.js** format, and deployed as a browser-based web application using **GitHub Pages**.
+The model was trained using **Google Teachable Machine**, tested in **Google Colab**, and deployed as a simple browser-based web application using **TensorFlow.js** and **GitHub Pages**.
 
-🔗 **Live Demo:**  
+---
+
+## 🔗 Live Demo
+
+Try the project here:
+
 https://feton-alberekit.github.io/rock-paper-scissors-web/
 
 ---
 
-## Project Overview
+## 📌 Project Overview
 
-This project demonstrates a complete and practical machine learning deployment workflow, starting from image data preparation and model training, then moving to model export, web integration, and public deployment.
+This project demonstrates a simple and practical image classification workflow.
 
-Unlike traditional machine learning projects that only run inside notebooks, this project allows users to interact with the trained model directly through a web browser. The prediction process runs entirely on the client side using **TensorFlow.js**, which means no backend server is required.
+The main goal is to classify hand gesture images into three categories:
 
----
+- Rock
+- Paper
+- Scissors
 
-## Project Objective
+The model was trained using Google Teachable Machine by uploading image data for each class. After training, the model was exported and tested in Google Colab by uploading a sample image and checking the prediction result.
 
-The goal of this project is to build a simple yet complete image classification system that can:
-
-- Classify hand gesture images into three categories
-- Run predictions directly in the browser
-- Provide an easy-to-use web interface
-- Demonstrate AI model deployment using GitHub Pages
-- Document the full workflow in a clear and professional GitHub repository
+To make the project more accessible, the model was also deployed as a web application. The web version allows users to upload an image directly from their device and receive a prediction through the browser.
 
 ---
 
-## Classes
+## 🎯 Project Objective
 
-The model classifies images into three gesture classes:
+The objective of this project is to build a beginner-friendly image classification model and present it in a professional way through:
+
+- A trained image classification model
+- A Google Colab testing workflow
+- A simple interactive web interface
+- A public GitHub Pages deployment
+- A clear and organized GitHub repository
+
+---
+
+## 🧠 Classes
+
+The model classifies hand gesture images into three classes:
 
 | Class | Description |
 |------|-------------|
-| 🪨 Rock | Closed fist gesture |
+| 🪨 Rock | Closed fist hand gesture |
 | ✋ Paper | Open hand gesture |
-| ✌️ Scissors | Two-finger gesture |
+| ✌️ Scissors | Two-finger hand gesture |
 
 ---
 
-## Features
-
-- Upload an image from the device
-- Predict the gesture class automatically
-- Display the predicted class
-- Show confidence scores for all classes
-- Browser-based inference using TensorFlow.js
-- No backend server required
-- Public deployment using GitHub Pages
-- Lightweight and easy to use
-
----
-
-## Technologies Used
+## 🛠️ Technologies Used
 
 - Google Teachable Machine
+- TensorFlow / Keras
 - TensorFlow.js
-- HTML5
-- CSS3
-- JavaScript
-- GitHub Pages
 - Google Colab
+- HTML
+- CSS
+- JavaScript
 - GitHub
+- GitHub Pages
 
 ---
 
-## Project Workflow
+## 🔄 Project Workflow
 
-The project followed the workflow below:
+The project followed this workflow:
 
-1. Collected and prepared image data for three classes
-2. Trained an image classification model using Google Teachable Machine
-3. Exported the trained model in TensorFlow.js format
-4. Built a web interface using HTML, CSS, and JavaScript
-5. Integrated the trained model into the website
-6. Uploaded model files and project assets to GitHub
-7. Deployed the application using GitHub Pages
-8. Added sample dataset images and documentation for reproducibility
+1. Downloaded a Rock, Paper, Scissors image dataset.
+2. Uploaded the images into Google Teachable Machine.
+3. Created three classes: Rock, Paper, and Scissors.
+4. Trained the image classification model.
+5. Exported the trained model in TensorFlow/Keras format.
+6. Tested the model in Google Colab by uploading a sample image.
+7. Prepared the model for web deployment using TensorFlow.js format.
+8. Built a simple web page for image upload and prediction display.
+9. Deployed the project using GitHub Pages.
+10. Added a small dataset sample and screenshots for documentation.
 
 ---
 
-## Dataset
+## 📂 Dataset
 
-The model was trained on image data representing three hand gestures: Rock, Paper, and Scissors.
+The dataset contains images of three hand gestures:
 
-A small sample of the dataset is included in this repository for demonstration purposes. The sample contains **5 images from each class**.
+- Rock
+- Paper
+- Scissors
+
+A small sample of the dataset is included in this repository for demonstration purposes.  
+The sample contains **5 images from each class**.
 
 ```text
 dataset_sample/
@@ -101,15 +107,33 @@ dataset_sample/
 └── scissors/
 ```
 
-The included sample dataset helps visitors understand the type of images used for training without making the repository unnecessarily large.
+The full training process was done using Google Teachable Machine.  
+The included sample dataset is only provided to show the type of images used in the project without making the repository too large.
 
 ---
 
-## Model
+## 🤖 Model
 
-The trained model was exported from Google Teachable Machine in **TensorFlow.js** format.
+The model was trained using Google Teachable Machine.
 
-The model files are stored in the `model` folder:
+Two model formats were used during the project:
+
+### 1. TensorFlow/Keras Format
+
+This format was used for testing the trained model in Google Colab.
+
+The testing process included:
+
+- Loading the trained model
+- Uploading a test image
+- Running prediction
+- Displaying the predicted class
+
+### 2. TensorFlow.js Format
+
+This format was used for the web application.
+
+The TensorFlow.js model files are stored in the `model` folder:
 
 ```text
 model/
@@ -118,11 +142,25 @@ model/
 └── weights.bin
 ```
 
-These files are loaded directly by the web application to perform prediction inside the browser.
+These files allow the model to run directly inside the browser.
 
 ---
 
-## Repository Structure
+## 🌐 Web Application
+
+The web application allows users to:
+
+- Upload an image from their device
+- Preview the uploaded image
+- Run prediction using the trained model
+- Display the predicted class
+- Show confidence scores for each class
+
+The website runs directly in the browser using TensorFlow.js, without requiring a backend server.
+
+---
+
+## 🗂️ Repository Structure
 
 ```text
 rock-paper-scissors-web/
@@ -140,9 +178,6 @@ rock-paper-scissors-web/
 │   ├── paper/
 │   └── scissors/
 │
-├── notebooks/
-│   └── model_test_colab.ipynb
-│
 └── screenshots/
     ├── website.png
     └── prediction_result.png
@@ -150,13 +185,13 @@ rock-paper-scissors-web/
 
 ---
 
-## How to Use the Web App
+## 🚀 How to Use the Web App
 
 1. Open the live demo link.
-2. Upload an image of a hand gesture.
-3. The model will analyze the image.
-4. The predicted class will be displayed.
-5. Confidence scores for each class will also be shown.
+2. Click **Choose File**.
+3. Upload an image of a hand gesture.
+4. The model will predict whether the image is Rock, Paper, or Scissors.
+5. The prediction result and confidence scores will be displayed on the page.
 
 Live Demo:
 
@@ -166,89 +201,96 @@ https://feton-alberekit.github.io/rock-paper-scissors-web/
 
 ---
 
-## How to Run Locally
+## 💻 How to Run Locally
 
-Clone the repository:
+To run the project locally:
+
+1. Download or clone the repository.
 
 ```bash
 git clone https://github.com/feton-alberekit/rock-paper-scissors-web.git
 ```
 
-Open the project folder and run it using a local server.
+2. Open the project folder.
 
-For example, using VS Code:
+3. Run `index.html` using a local server.
+
+For example, if you are using VS Code:
 
 1. Install the **Live Server** extension.
-2. Open the project folder.
-3. Right-click `index.html`.
-4. Choose **Open with Live Server**.
+2. Open the project folder in VS Code.
+3. Right-click on `index.html`.
+4. Select **Open with Live Server**.
 
 ---
 
-## Sample Prediction Output
+## 📊 Example Output
 
-The application displays the prediction result in a user-friendly way, including:
-
-- The most likely predicted class
-- Confidence score for each class
-
-Example:
+When an image is uploaded, the model returns a prediction similar to:
 
 ```text
-Prediction: Rock
+Prediction: rock
 
-Rock: 98.42%
-Paper: 1.10%
-Scissors: 0.48%
+scissors: 0.00%
+rock: 100.00%
+paper: 0.00%
 ```
 
 ---
 
-## Screenshots
+## 🖼️ Screenshots
 
 ### Website Interface
 
 <p align="center">
-  <img src="screenshots/website.png" width="700" alt="Website Interface">
+  <img src="screenshots/website.png" width="750" alt="Website Interface">
 </p>
 
 ### Prediction Result
 
 <p align="center">
-  <img src="screenshots/prediction_result.png" width="700" alt="Prediction Result">
+  <img src="screenshots/prediction_result.png" width="750" alt="Prediction Result">
 </p>
 
 ---
 
-## Key Learning Outcomes
+## ✅ Project Value
 
-Through this project, I practiced:
+This project shows how a simple machine learning idea can be turned into a complete and shareable project.
 
-- Image classification concepts
-- Preparing a simple multi-class dataset
-- Training a computer vision model
-- Exporting a model for web deployment
-- Using TensorFlow.js for browser-based inference
-- Building a simple AI-powered web interface
-- Deploying a machine learning project with GitHub Pages
-- Organizing and documenting an AI project professionally on GitHub
+The project covers the following stages:
+
+```text
+Dataset → Training → Model Export → Testing → Web Deployment → Documentation
+```
+
+Although the model was trained using a beginner-friendly tool, the project demonstrates an important practical workflow: moving from a trained model to a usable web application.
+
+This makes the project a good introduction to image classification and basic machine learning deployment.
 
 ---
 
-## Future Improvements
+## 🔍 Limitations
 
-Possible future enhancements include:
+This project is a beginner-level image classification project, so it has some limitations:
+
+- The model was trained using Google Teachable Machine, not a custom CNN built from scratch.
+- The model may perform better on images similar to the training data.
+- Accuracy may decrease with different lighting, backgrounds, or hand positions.
+- The dataset sample included in the repository is small and used only for demonstration.
+- No detailed evaluation report, confusion matrix, or accuracy analysis was created yet.
+
+---
+
+## 🌱 Future Improvements
+
+Possible improvements for future versions include:
 
 - Adding webcam-based live prediction
+- Improving the website design
 - Adding drag-and-drop image upload
-- Improving the user interface design
-- Displaying confidence scores as visual progress bars
-- Adding more gesture classes
-- Testing the model on a larger and more diverse dataset
-- Creating a performance evaluation section
-- Adding a confusion matrix and accuracy report
-
----
-
-
-
+- Showing confidence scores as visual progress bars
+- Testing the model on more diverse images
+- Adding more hand gesture classes
+- Creating a simple model evaluation report
+- Adding a confusion matrix and accuracy summary
