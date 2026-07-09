@@ -39,10 +39,8 @@ To make the project more accessible, the model was also deployed as a web applic
 The objective of this project is to build a beginner-friendly image classification model and present it in a professional way through:
 
 - A trained image classification model
-- A Google Colab testing workflow
 - A simple interactive web interface
-- A public GitHub Pages deployment
-- A clear and organized GitHub repository
+
 
 ---
 
